@@ -1,9 +1,11 @@
+$height: 60vmin;
+
 .App {
   text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
+  height: $height;
   pointer-events: none;
 }
 
