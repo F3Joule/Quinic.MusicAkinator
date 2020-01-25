@@ -36,7 +36,7 @@ type toggle = () => void;
 const Player: FunctionComponent<Props> = ({ url }) => {
     const [playing, toggle] = useAudio(url);
 
-    return (<Button className='Play--button' onClick={toggle as toggle}>
+    return (<Button className='Play--button' onClick={toggle as toggle} disabled={url === ''}>
         {playing ? <PauseIcon/> :<PlayArrowIcon />}
     </Button>
     );

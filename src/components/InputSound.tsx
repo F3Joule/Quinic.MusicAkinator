@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
-import { ReactMediaRecorder } from 'react-media-recorder';
-import { TextField, IconButton } from '@material-ui/core';
-import MicIcon from '@material-ui/icons/Mic';
+import { TextField, makeStyles, Theme, createStyles, Backdrop, CircularProgress } from '@material-ui/core';
 import { getSongDataByLyrics } from '../api/AuddAPI';
 import { useDeezerData } from './ResultContext';
+
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    backdrop: {
+      zIndex: theme.zIndex.drawer + 1,
+      color: '#fff',
+    },
+  }),
+);
 
 export const InputSound = () => {
   const { set } = useDeezerData();
   const [lyrics, setLyrics] = useState<string | null>(null);
-  // var isRecording = false;
-  const [isRecording, setIsRecording] = useState(false);
+  const classes = useStyles();
+  const [open, setOpen] = useState(false);
 
   return (
     <div className='Input-music'>
@@ -26,7 +34,7 @@ export const InputSound = () => {
             if (lyrics !== null) {
               getSongDataByLyrics(lyrics).then(data => set(data as any));
             }
-
+            setOpen(true);
             event.preventDefault();
           }
         }}
@@ -57,6 +65,9 @@ export const InputSound = () => {
           console.log('Audio blob', blobUrl);
         }}
       /> */}
+      <Backdrop className={classes.backdrop} open={open} >
+        <CircularProgress color="inherit" />
+      </Backdrop>
     </div>
   );
 };

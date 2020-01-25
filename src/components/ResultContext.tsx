@@ -4,14 +4,8 @@ import { AuddResponse } from '../api/types';
 export type DeezerData = {
     title: string,
     preview: string,
-    link: string,
-    album : {
+    album: {
         cover: string,
-        title: string
-    },
-    artist: {
-      name: string,
-      link: string
     },
     lyrics?: string,
     results?: AuddResponse
