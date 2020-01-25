@@ -16,6 +16,7 @@ export const InputSound = () => {
       <TextField
         id='lyricsInput'
         className='InputText'
+        label='Input lyrics part'
         required
         onChange={event => {
           setLyrics(event.target.value);
@@ -30,7 +31,7 @@ export const InputSound = () => {
           }
         }}
       />
-      <ReactMediaRecorder
+      {/* <ReactMediaRecorder
         audio
         render={({ status, startRecording, stopRecording }) => {
           return <div className={isRecording ? 'icon active' : 'icon'}>
@@ -55,7 +56,7 @@ export const InputSound = () => {
           // TODO: call AUDD API search by media
           console.log('Audio blob', blobUrl);
         }}
-      />
+      /> */}
     </div>
   );
 };
