@@ -1,26 +1,22 @@
 import React, { FunctionComponent } from 'react';
-import { Button } from '@material-ui/core';
-import SearchIcon from '@material-ui/icons/Search';
-import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
+import { NavButtons } from './NavButton';
 
 type Props = {
-  className?: string
-}
+  className?: string;
+  withoutNav?: boolean;
+};
 
-export const Box: FunctionComponent<Props> = ({ children, className }) => {
-    return <div className='main center-box'>
-        <div className={'Box ' + className}>
-            {children}
-        </div>
-        <NavButtons/>
+export const Box: FunctionComponent<Props> = ({
+  children,
+  className,
+  withoutNav = false
+}) => {
+  return (
+    <div className='main center-box'>
+      <div className={'Box ' + className}>{children}</div>
+      {!withoutNav && <NavButtons />}
     </div>
-}
+  );
+};
 
 export default Box;
-
-const NavButtons = () => {
-    return <div className='NavButtons'>
-        <Button className='NavButton'><SearchIcon/></Button>
-        <Button className='NavButton'><SportsEsportsIcon/></Button>
-    </div>
-}

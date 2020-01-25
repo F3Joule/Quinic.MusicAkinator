@@ -5,12 +5,14 @@ import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
 
 export const Home = () => {
-    return <div className='main'>
+  return (
+    <div className='main'>
       <div className='Menu'>
-        <ButtonBases/>
+        <ButtonBases />
       </div>
     </div>
-}
+  );
+};
 
 export default Home;
 
@@ -18,12 +20,12 @@ const images = [
   {
     path: 'search',
     title: 'SEARCH SOUND',
-    width: '50%',
+    width: '50%'
   },
   {
     path: 'game',
     title: 'START GAME',
-    width: '50%',
+    width: '50%'
   }
 ];
 
@@ -33,27 +35,27 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       flexWrap: 'wrap',
       minWidth: 300,
-      width: '100%',
+      width: '100%'
     },
     image: {
       position: 'relative',
       height: '50vh',
       [theme.breakpoints.down('xs')]: {
         width: '100% !important', // Overrides inline-style
-        height: 100,
+        height: 100
       },
       '&:hover, &$focusVisible': {
         zIndex: 1,
         '& $imageBackdrop': {
-          opacity: 0.15,
+          opacity: 0.15
         },
         '& $imageMarked': {
-          opacity: 0,
+          opacity: 0
         },
         '& $imageTitle': {
-          border: '2px solid currentColor',
-        },
-      },
+          border: '2px solid currentColor'
+        }
+      }
     },
     focusVisible: {},
     imageButton: {
@@ -65,7 +67,7 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      color: theme.palette.common.white,
+      color: theme.palette.common.white
     },
     imageSrc: {
       position: 'absolute',
@@ -82,11 +84,12 @@ const useStyles = makeStyles((theme: Theme) =>
       bottom: 0,
       backgroundColor: theme.palette.common.black,
       opacity: 0.4,
-      transition: theme.transitions.create('opacity'),
+      transition: theme.transitions.create('opacity')
     },
     imageTitle: {
       position: 'relative',
-      padding: `${theme.spacing(2)}px ${theme.spacing(4)}px ${theme.spacing(1) + 6}px`,
+      padding: `${theme.spacing(2)}px ${theme.spacing(4)}px ${theme.spacing(1) +
+        6}px`
     },
     imageMarked: {
       height: 3,
@@ -95,9 +98,9 @@ const useStyles = makeStyles((theme: Theme) =>
       position: 'absolute',
       bottom: -2,
       left: 'calc(50% - 9px)',
-      transition: theme.transitions.create('opacity'),
-    },
-  }),
+      transition: theme.transitions.create('opacity')
+    }
+  })
 );
 
 export function ButtonBases() {
@@ -112,19 +115,17 @@ export function ButtonBases() {
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
           style={{
-            width: image.width,
+            width: image.width
           }}
         >
           <Link to={'/' + image.path}>
-            <span
-              className={classes.imageSrc + ' Audd--image-' + index}
-            />
+            <span className={classes.imageSrc + ' Audd--image-' + index} />
             <span className={classes.imageBackdrop} />
             <span className={classes.imageButton}>
               <Typography
-                component="span"
-                variant="subtitle1"
-                color="inherit"
+                component='span'
+                variant='subtitle1'
+                color='inherit'
                 className={classes.imageTitle}
               >
                 {image.title}
