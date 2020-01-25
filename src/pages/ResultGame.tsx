@@ -44,7 +44,8 @@ export const Result = (props: Props) => {
   const [currentData, setData] = useState<DeezerData>(data);
   const [youWin, setWin] = useState(true);
   const [finishGame, setFinish] = useState(false);
-  const { title, preview, album: { cover } } = currentData;
+  const { title, album: { cover } } = currentData;
+  const [ preview, setPreview ] = useState(currentData.preview);
 
   useEffect(() => {
     if (attemps > 4) {
@@ -53,7 +54,11 @@ export const Result = (props: Props) => {
       return;
     }
     
-    currentTrack && requestDeezerMusic(currentTrack).then(data => setData(data)).catch(console.log);
+    currentTrack && requestDeezerMusic(currentTrack)
+      .then(data => { 
+        setData(data);
+        setPreview(data.preview);
+    }).catch(console.log);
 
   }, [attemps, currentTrack, win]);
 
