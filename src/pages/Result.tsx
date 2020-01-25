@@ -1,7 +1,7 @@
 import React from 'react';
 import MainWithBox from '../components/MainWithBox';
 import ResultComponent from '../components/ResultComponent';
-import { useDeezerData } from '../components/ResultContext';
+import DeezerProvider, { useDeezerData } from '../components/ResultContext';
 import InputSound from '../components/InputSound';
 
 export const Result = () => {
@@ -9,7 +9,7 @@ export const Result = () => {
     state: { data }
   } = useDeezerData();
 
-  const isResult = data === undefined;
+  const isResult = data !== undefined;
 
   return (
     <MainWithBox className={isResult ? 'box-result' : 'box-center'}>
@@ -18,4 +18,4 @@ export const Result = () => {
   );
 };
 
-export default Result;
+export default () => <DeezerProvider><Result/></DeezerProvider>;

@@ -1,11 +1,20 @@
-import React, { useReducer, createContext, useContext, useEffect } from 'react';
+import React, { useReducer, createContext, useContext } from 'react';
+import { AuddResponse } from './api/types';
 
 export type DeezerData = {
     title: string,
     preview: string,
+    link: string,
     album : {
-        cover: string
-    }
+        cover: string,
+        title: string
+    },
+    artist: {
+      name: string,
+      link: string
+    },
+    lyrics?: string,
+    results?: AuddResponse
 }
 
 type DeezerState = {

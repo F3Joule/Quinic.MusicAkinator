@@ -1,8 +1,14 @@
-import React from 'react';
-import MainWithBox from '../components/MainWithBox';
-import InputSound from '../components/InputSound';
+import React, { FunctionComponent } from 'react';
+import MainWithBox from './MainWithBox';
+import InputSound from './InputSound';
 import { Button } from '@material-ui/core';
-export const Game = () => {
+
+type Props = {
+  score: number
+}
+
+export const Game = (props: Props) => {
+  const { score } = props;
   return (
     <MainWithBox className='box-center'>
       <div>
@@ -10,7 +16,7 @@ export const Game = () => {
         <InputSound />
         <span className='Game-box'>
           <div className='Count-box'>
-            <div className='counter'>0</div>
+            <div className='counter'>{score}</div>
             <div className='text'>Number of wins</div>
           </div>
           <Button className='Game-button'>FINISH GAME</Button>

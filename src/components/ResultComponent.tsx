@@ -1,32 +1,22 @@
 import React, { FunctionComponent } from 'react';
-import PlayArrowIcon from '@material-ui/icons/PlayArrow';
-import { Button } from '@material-ui/core';
 import { DeezerData } from './ResultContext';
-import ReactAudioPlayer from 'react-audio-player';
+import Player from './PlaySoundButton';
+import ReactMarkdown from 'react-markdown';
 
 type Props = {
   data: DeezerData
 }
 
 export const Result: FunctionComponent<Props> = ( { data } ) => {
-  const { title, preview, album: { cover } } = data;
+  const { title, preview, album: { cover }, lyrics } = data;
   return (
     <div className='Result'>
       <div className='Result--image' style={{ backgroundImage: `url(${cover})`}}>
-      <ReactAudioPlayer
-          src={preview}
-      >
-        <Button className='Play--button'>
-          <PlayArrowIcon />
-        </Button>
-      </ReactAudioPlayer>
+        <Player url={preview}/>
       </div>
       <div className='Result--text'>
         <h4 className='title'>{title}</h4>
-        <p>
-          Work it Make it Do it Makes us Harder Better Faster Stronger More than
-          Hour Our Never Ever After Work is Over
-        </p>
+        <ReactMarkdown className='DfMd' source={lyrics} linkTarget='_blank'/>
       </div>
     </div>
   );

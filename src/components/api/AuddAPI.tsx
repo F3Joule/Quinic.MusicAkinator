@@ -3,14 +3,14 @@ import axios from 'axios';
 
 require('dotenv').config();
 
-const publicProxy = 'https://cors-anywhere.herokuapp.com/';
+const publicProxy = 'http://127.0.0.1:9000/';
 
-const requestDeezerMusic = async (musicInfo: MusicInfo) => {
+export const requestDeezerMusic = async (musicInfo: MusicInfo) => {
   console.log('Here');
   const data = await axios
     .get(`${publicProxy}https://api.deezer.com/search?q=artist:"${musicInfo.artist}"track:"${musicInfo.title}"`);
   console.log(data);
-  return data.data[0];
+  return data.data.data[0];
 };
 
 export async function getSongDataByLyrics(lyrics: string) {
@@ -24,7 +24,8 @@ export async function getSongDataByLyrics(lyrics: string) {
       .post(`${publicProxy}https://api.audd.io/findLyrics/`, data);
     const response: AuddResponse = res.data;
     console.log('Audd result', response);
-    const deezerData = await requestDeezerMusic(response.result[0]);
-    return deezerData;
+    const dataForDeezer = response.result[0];
+    const deezerData = await requestDeezerMusic(dataForDeezer);
+    return { ...deezerData, lyrics: dataForDeezer.lyrics, results: response };
   }
 }

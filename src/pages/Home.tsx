@@ -18,7 +18,7 @@ export default Home;
 
 const images = [
   {
-    path: 'result',
+    path: 'search',
     title: 'SEARCH SOUND',
     width: '50%'
   },

@@ -1,6 +1,7 @@
 export type MusicInfo = {
     title: string,
-    artist: string
+    artist: string,
+    lyrics: string
 };
 
 export type AuddResponse = {
