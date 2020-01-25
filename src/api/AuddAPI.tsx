@@ -1,9 +1,11 @@
 import { AuddResponse, MusicInfo } from './types';
 import axios from 'axios';
+import { DeezerData } from '../components/ResultContext';
 
 require('dotenv').config();
 
-const publicProxy = 'http://127.0.0.1:9000/';
+// TODO: Use .env variable to be able to disable proxy
+const publicProxy = 'https://cors-anywhere.herokuapp.com/';
 
 export const requestDeezerMusic = async (musicInfo: MusicInfo) => {
   console.log('Here');
@@ -26,6 +28,7 @@ export async function getSongDataByLyrics(lyrics: string) {
     console.log('Audd result', response);
     const dataForDeezer = response.result[0];
     const deezerData = await requestDeezerMusic(dataForDeezer);
-    return { ...deezerData, lyrics: dataForDeezer.lyrics, results: response };
+    const initialData: DeezerData = deezerData ? deezerData : { title: dataForDeezer.title, preview: '', album: { cover: '' }};
+    return { ...initialData, lyrics: dataForDeezer.lyrics, results: response };
   }
 }
