@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ReactMediaRecorder } from 'react-media-recorder';
 import { TextField, IconButton } from '@material-ui/core';
 import MicIcon from '@material-ui/icons/Mic';
@@ -8,13 +8,14 @@ import { useDeezerData } from './ResultContext';
 export const InputSound = () => {
   const { set } = useDeezerData();
   const [lyrics, setLyrics] = useState<string | null>(null);
-  var isRecording = false;
+  // var isRecording = false;
+  const [isRecording, setIsRecording] = useState(false);
 
   return (
     <div className='Input-music'>
       <TextField
         id='lyricsInput'
-        label='Input lyrics part'
+        className='InputText'
         required
         onChange={event => {
           setLyrics(event.target.value);
@@ -31,23 +32,25 @@ export const InputSound = () => {
       />
       <ReactMediaRecorder
         audio
-        render={({ status, startRecording, stopRecording }) => (
-          <div className='icon'>
+        render={({ status, startRecording, stopRecording }) => {
+          return <div className={isRecording ? 'icon active' : 'icon'}>
             <IconButton
               // disabled={status === 'idle' ? false : true}
               onClick={() => {
-                isRecording = !isRecording;
+                // isRecording = !isRecording;
+                setIsRecording(true);
+                startRecording();
 
-                if (isRecording) {
-                  startRecording();
-                } else {
+                setTimeout(() => {
                   stopRecording();
-                }
+                  setIsRecording(false);
+                }, 7000);
+              
               }}>
               <MicIcon style={{ color: 'white' }} />
             </IconButton>
           </div>
-        )}
+        }}
         onStop={(blobUrl: string) => {
           // TODO: call AUDD API search by media
           console.log('Audio blob', blobUrl);
