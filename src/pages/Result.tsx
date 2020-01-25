@@ -4,7 +4,7 @@ import ResultComponent from '../components/ResultComponent';
 
 export const Result = () => {
   return (
-    <MainWithBox>
+    <MainWithBox className='box-result'>
       <ResultComponent />
     </MainWithBox>
   );

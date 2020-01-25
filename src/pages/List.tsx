@@ -1,19 +1,17 @@
 import React from 'react';
 import MainWithBox from '../components/MainWithBox';
-import { Button } from '@material-ui/core';
-import SearchIcon from '@material-ui/icons/Search';
-import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
+import { GameButton, SearchButton } from '../components/NavButton';
 
-const lists = [ ['Daft Punk - Harder, Better, Faster, Stronger', 'corect'], ['Daft Punk - Harder, Better, Faster, Stronger', 'corect'], ['Daft Punk - Harder, Better, Faster, Stronger', 'corect'], ['Daft Punk - Harder, Better, Faster, Stronger', 'corect'], ['Daft Punk - Harder, Better, Faster, Stronger', 'corect'], ['Daft Punk - Harder, Better, Faster, Stronger', 'corect']];
+const lists = [['Daft Punk - Harder, Better, Faster, Stronger', 'corect'], ['Daft Punk - Harder, Better, Faster, Stronger', 'corect'], ['Daft Punk - Harder, Better, Faster, Stronger', 'corect'], ['Daft Punk - Harder, Better, Faster, Stronger', 'corect'], ['Daft Punk - Harder, Better, Faster, Stronger', 'corect'], ['Daft Punk - Harder, Better, Faster, Stronger', 'corect']];
 
 export const Seacrh = () => {
     return <MainWithBox withoutNav className='box-center'>
         <div className='SoundsList'>
             <h4 className='Winner'>Winner: AUDD</h4>
-            {lists.map( (x, i) => <ScoreItem key={i} name={x[0]} result={x[1] as any}/>)}
+            {lists.map((x, i) => <ScoreItem key={i} name={x[0]} result={x[1] as any} />)}
             <div className={'NavButtons horizontal'}>
-                <Button className='NavButton'><SportsEsportsIcon/></Button>
-                <Button className='NavButton'><SearchIcon/></Button>
+                <GameButton />
+                <SearchButton />
             </div>
         </div>
     </MainWithBox>

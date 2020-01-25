@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme: Theme) =>
       height: '50vh',
       [theme.breakpoints.down('xs')]: {
         width: '100% !important', // Overrides inline-style
-        height: 100
+        height: '32vh'
       },
       '&:hover, &$focusVisible': {
         zIndex: 1,
