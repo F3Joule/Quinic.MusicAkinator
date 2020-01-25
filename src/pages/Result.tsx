@@ -13,7 +13,7 @@ export const Result = () => {
 
   return (
     <MainWithBox className={isResult ? 'box-result' : 'box-center'}>
-        {isResult ? <ResultComponent /> : <InputSound />}
+        {isResult ? <ResultComponent data={data as any}/> : <InputSound />}
     </MainWithBox>
   );
 };
