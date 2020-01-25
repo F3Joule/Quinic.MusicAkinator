@@ -10,7 +10,7 @@ const requestDeezerMusic = async (musicInfo: MusicInfo) => {
   const data = await axios
     .get(`${publicProxy}https://api.deezer.com/search?q=artist:"${musicInfo.artist}"track:"${musicInfo.title}"`);
   console.log(data);
-  return data;
+  return data.data[0];
 };
 
 export async function getSongDataByLyrics(lyrics: string) {
