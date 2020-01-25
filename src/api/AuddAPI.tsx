@@ -4,6 +4,7 @@ import { DeezerData } from '../components/ResultContext';
 
 require('dotenv').config();
 
+// TODO: Use .env variable to be able to disable proxy
 const publicProxy = 'https://cors-anywhere.herokuapp.com/';
 
 export const requestDeezerMusic = async (musicInfo: MusicInfo) => {
