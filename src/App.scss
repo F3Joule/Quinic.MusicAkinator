@@ -41,6 +41,15 @@ a {
   padding: 1rem;
 }
 
+.InputText {
+  .MuiInput-underline:before {
+    border-color: rgba($color: #fff, $alpha: 1);
+  }
+  .MuiFormLabel-root {
+    color: rgba($color: #fff, $alpha: .45);
+  }
+}
+
 .icon {
   border: 1px solid white;
   display: flex;

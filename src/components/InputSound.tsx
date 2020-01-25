@@ -12,6 +12,7 @@ export const InputSound = () => {
     <div className='Input-music'>
       <TextField
         id='lyricsInput'
+        className='InputText'
         label='Input lyrics part'
         required
         onChange={event => {
