@@ -1,4 +1,4 @@
-import React, { useState, FunctionComponent, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import MainWithBox from '../components/MainWithBox';
 import { Button } from '@material-ui/core';
 import { NavButtons } from '../components/NavButton';
