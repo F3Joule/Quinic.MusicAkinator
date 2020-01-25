@@ -1,6 +1,6 @@
 import React from 'react';
-import MainWithBox from '../components/MainWithBox';
-import InputSound from '../components/InputSound';
+import MainWithBox from './MainWithBox';
+import InputSound from './InputSound';
 export const Seacrh = () => {
   return (
     <MainWithBox className='box-center'>

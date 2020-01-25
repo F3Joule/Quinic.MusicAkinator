@@ -7,8 +7,9 @@ import DeezerProvider, { useDeezerData, DeezerData } from '../components/ResultC
 import InputGame from '../components/InputGame';
 import Player from '../components/PlaySoundButton';
 import ReactMarkdown from 'react-markdown';
-import { requestDeezerMusic } from '../components/api/AuddAPI';
+import { requestDeezerMusic } from '../api/AuddAPI';
 import store from 'store';
+import List from '../components/List';
 
 const SCORE = 'score';
 
@@ -54,7 +55,7 @@ export const Result = (props: Props) => {
     
     currentTrack && requestDeezerMusic(currentTrack).then(data => setData(data)).catch(console.log);
 
-  }, [attemps]);
+  }, [attemps, currentTrack, win]);
 
   const ActionButtons = () => (
     <div className='action-button'>
@@ -79,6 +80,13 @@ export const Result = (props: Props) => {
     );
   };
 
+  const SoundContent = () => (<>
+    <h4 className='title'>
+      {title}
+    </h4>
+    <ReactMarkdown className='DfMd' source={currentTrack ? currentTrack.lyrics : ''} linkTarget='_blank' />
+  </>)
+ 
   return (
     <MainWithBox withoutNav={isBrowser} className='box-result'>
       <div className='Result'>
@@ -98,10 +106,7 @@ export const Result = (props: Props) => {
             </div>
           </MobileView>
           <div className='Result--text'>
-            <h4 className='title'>
-              {title}
-            </h4>
-            <ReactMarkdown className='DfMd' source={currentTrack ? currentTrack.lyrics : ''} linkTarget='_blank' />
+            {finishGame && results ? <List results={results.result.slice(0, attemps)}/> : <SoundContent/>}
           </div>
           {isBrowser &&
             <div className='Stats'>

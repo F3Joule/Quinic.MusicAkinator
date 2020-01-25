@@ -4,7 +4,6 @@ import './App.scss';
 import Home from './pages/Home';
 import Result from './pages/Result';
 import ResultGame from './pages/ResultGame';
-import List from './pages/List';
 
 const App: React.FC = () => {
   return (
@@ -13,7 +12,6 @@ const App: React.FC = () => {
           <Route exact path='/' component={Home} />
           <Route path='/search' component={Result} />
           <Route path='/game' component={ResultGame} />
-          <Route path='/winner' component={List} />
         </Switch>
     </BrowserRouter>
   );

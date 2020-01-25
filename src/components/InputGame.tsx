@@ -2,6 +2,7 @@ import React from 'react';
 import MainWithBox from './MainWithBox';
 import InputSound from './InputSound';
 import { Button } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 type Props = {
   score: number
@@ -19,7 +20,7 @@ export const Game = (props: Props) => {
             <div className='counter'>{score}</div>
             <div className='text'>Number of wins</div>
           </div>
-          <Button className='Game-button'>FINISH GAME</Button>
+          <Link to={'/'}><Button className='Game-button'>FINISH GAME</Button></Link>
         </span>
       </div>
     </MainWithBox>
