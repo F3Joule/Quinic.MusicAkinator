@@ -1,40 +1,107 @@
-$height: 60vmin;
+$secondary-color: #EAE8E2;
 
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: $height;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main {
+  background-image: url('./images/bg.svg');
+  height: 100%;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+}
+
+.center-box {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.Menu {
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.Box {
+  display: flex;
+  height: 45%;
+  width: 75%;
+  background-color: #191919;
+}
+
+.box-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.Input-music {
+  zoom: 1.4;
+  filter: invert(0.9);
+  display: flex;
+}
+
+.icon {
+  border: solid;
+  display: flex;
+  height: min-content;
+  align-items: end;
+  padding: .15rem;
+  margin-top: 1rem;
+  margin-left: 1.5rem;
+  opacity: .5;
+  cursor: pointer;
+}
+
+.Audd--image-0 {
+  background-image: url('./images/search.png');
+  background-size: 115%; /* Современные браузеры */
+  background-position-y: 33%;
+  background-position-x: 21%;
+}
+
+.Audd--image-1 {
+  background-image: url('./images/game.png');
+  background-size: 115%; /* Современные браузеры */
+  background-position-y: 32%;
+  background-position-x: 68%;
+}
+
+.NavButtons {
+  position: absolute;
+  right: 12.5%;
+  bottom: 3%;
+  width: min-content;
+  button {
+    width: 100%;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+    border: solid 2px;
+    border-radius: 0;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+.Result--image {
+  width: 45%;
+}
+
+.Play--button {
+  margin-top: 25px !important;
+  padding: 0 !important;
+  margin-left: 25px !important;
+  background-color: $secondary-color;
+  border-radius: 0;
+  
+  .MuiButton-label {
+    height: 32px;
+    width: 32px;
+    zoom: 1.3;
+    background-color: $secondary-color;
   }
+}
+
+.Result--text {
+  width: 55%;
+  background-color: $secondary-color;
+  padding: 25px 50px;
+}
+
+.title {
+  text-align: center;
 }
