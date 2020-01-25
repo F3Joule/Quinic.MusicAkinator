@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ReactMediaRecorder } from 'react-media-recorder';
 import { TextField, IconButton } from '@material-ui/core';
 import MicIcon from '@material-ui/icons/Mic';
