@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MainWithBox from '../components/MainWithBox';
 import { Button } from '@material-ui/core';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import { NavButtons } from '../components/NavButton';
 import { isBrowser, MobileView } from 'react-device-detect';
+import { Link } from 'react-router-dom';
 
 export const Result = () => {
-  let attemps = 6;
+  const [ attemps, setAttemps ] = useState(0);
 
   const ActionButtons = () => (
     <div className='action-button'>
       <Button>CORRECT</Button>
-      <Button>INCORRECT</Button>
+      <Button onClick={() => {setAttemps(attemps+1)}} >INCORRECT</Button>
     </div>
   );
 
@@ -19,7 +20,7 @@ export const Result = () => {
     return (
       <>
         <span className='Sound--result'>Winner: Audd</span>
-        <Button>TRY AGAIN</Button>
+        <Link to={'/game'}><Button>TRY AGAIN</Button></Link>
       </>
     );
   };
@@ -41,7 +42,7 @@ export const Result = () => {
           <MobileView>
             <div className='Stats'>
                 <div className='text'>NUMBER OF ATTEMPS</div>
-                <div className='counter'>0</div>
+                <div className='counter'>{attemps}</div>
             </div>
           </MobileView>
           <div className='Result--text'>
