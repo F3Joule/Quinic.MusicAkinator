@@ -81,8 +81,8 @@ a {
     content: "";
     position: absolute;
     z-index: 0;
-    right: 7.5%;
-    top: 50%;
+    right: 36.5%;
+    top: 45.4%;
     display: block;
     width: 50px;
     height: 50px;
@@ -249,6 +249,7 @@ a {
   margin-left: 25px !important;
   background-color: $secondary-color;
   border-radius: 0;
+  border: 1.5px solid;
   
   .MuiButton-label {
     height: 32px;
@@ -306,40 +307,35 @@ a {
 }
 
 .SoundsList {
-  width: 85%;
-  height: 90%;
+  width: 100%;
+  height: auto;
   line-height: 1.4;
 
   .Winner {
     text-align: center;
     text-transform: uppercase;
-    color: #fff;
+    color: #191919;
   }
 
   .ScoreItem {
+    .Sound--result {
+      color: #191919;
+      text-transform: none;
+    }
+
+    justify-content: space-between;
     border-bottom: 1px solid;
     display: flex;
-    color: #fff;
+    color: #191919;
     align-items: center;
     padding: 2% 0 2% 0;
   }
 
-  .NavButtons.horizontal {
-    position: relative;
-    float: right;
-    top: 40px;
-
-    button {
-      color: #fff;
-      margin-left: 2rem;
-      margin-right: 0;
-    }
-  }
 }
 
 .Sound--result {
-  text-transform: uppercase;
   color: #fff;
+  text-transform: uppercase;
 }
 
 
@@ -351,13 +347,18 @@ a {
       position: relative;
       top: -74px;
       height: 66%;
-
-      .SoundsList {
-        line-height: 1.4;
-        width: 85%;
-        height: 90%;
-      }
     }
+  }
+
+  .SoundsList {
+    line-height: 1.4;
+    width: 100%;
+    height: auto;
+  }
+
+  .icon.active:before {
+    right: 7.9%;
+    top: 43.5%;
   }
 
   .Box.box-result {
@@ -412,7 +413,7 @@ a {
 
     .Result--text, .Result-right {
       padding: 20px 12px;
-      height: 60%;
+      height: 100%;
       width: 94%;
 
       .Result--text {

@@ -1,5 +1,5 @@
 import React, { useReducer, createContext, useContext } from 'react';
-import { AuddResponse } from './api/types';
+import { AuddResponse } from '../api/types';
 
 export type DeezerData = {
     title: string,
