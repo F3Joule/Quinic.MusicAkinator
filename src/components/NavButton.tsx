@@ -12,8 +12,8 @@ export const NavButtons = (props: Props) => {
   const { variant = 'vertical' } = props;
   return (
     <div className={'NavButtons ' + variant}>
-      <SearchButton />
-      <GameButton />
+      <SearchButton/>
+      <GameButton/>
     </div>
   );
 };

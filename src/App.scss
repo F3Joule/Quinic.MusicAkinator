@@ -7,6 +7,10 @@ $secondary-color: #EAE8E2;
   display: flex;
 }
 
+a {
+  text-decoration: none;
+}
+
 .center-box {
   display: flex;
   align-items: center;
@@ -24,6 +28,7 @@ $secondary-color: #EAE8E2;
   height: 45%;
   width: 75%;
   background-color: #191919;
+  box-shadow: 0 0 20px #191919;
 }
 
 .box-center {
