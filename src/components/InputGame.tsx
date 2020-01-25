@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import MainWithBox from './MainWithBox';
 import InputSound from './InputSound';
 import { Button } from '@material-ui/core';
