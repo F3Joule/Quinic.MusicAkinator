@@ -6,6 +6,7 @@ require('dotenv').config();
 const publicProxy = 'https://cors-anywhere.herokuapp.com/';
 
 const requestDeezerMusic = async (musicInfo: MusicInfo) => {
+  console.log('Here');
   const data = await axios
     .get(`${publicProxy}https://api.deezer.com/search?q=artist:"${musicInfo.artist}"track:"${musicInfo.title}"`);
   console.log(data);
@@ -16,7 +17,7 @@ export async function getSongDataByLyrics(lyrics: string) {
   if (lyrics != null) {
     var data = {
       q: lyrics,
-      api_token: process.env.AUDD_TOKEN
+      api_token: 'cc95465555e477a488ff9f35e51251a3'
     };
 
     const res = await axios
