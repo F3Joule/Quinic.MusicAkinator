@@ -1,40 +1,29 @@
-import { AuddResponse } from './types';
+import { AuddResponse, MusicInfo } from './types';
+import axios from 'axios';
 
 require('dotenv').config();
-var request = require('request');
 
-const requestDeezerMusic = (title: string) => {
-  request(
-    {
-      uri: 'https://api.deezer.com/search/track?q=' + title,
-      method: 'GET'
-    },
-    (err: any, res: any, body: any) => {
-      console.log('Deezer result', JSON.parse(body));
-    }
-  );
+const publicProxy = 'https://cors-anywhere.herokuapp.com/';
+
+const requestDeezerMusic = async (musicInfo: MusicInfo) => {
+  const data = await axios
+    .get(`${publicProxy}https://api.deezer.com/search?q=artist:"${musicInfo.artist}"track:"${musicInfo.title}"`);
+  console.log(data);
+  return data;
 };
 
-export function getSongDataByLyrics(lyrics: string) {
+export async function getSongDataByLyrics(lyrics: string) {
   if (lyrics != null) {
     var data = {
       q: lyrics,
       api_token: process.env.AUDD_TOKEN
     };
 
-    request(
-      {
-        uri: 'https://api.audd.io/findLyrics/',
-        form: data,
-        method: 'POST'
-      },
-      (err: any, res: any, body: any) => {
-        if (res.statusCode === 200) {
-          const response: AuddResponse = JSON.parse(body);
-          console.log(response);
-        }
-        // requestDeezerMusic(songTitle as string);
-      }
-    );
+    const res = await axios
+      .post(`${publicProxy}https://api.audd.io/findLyrics/`, data);
+    const response: AuddResponse = res.data;
+    console.log('Audd result', response);
+    const deezerData = await requestDeezerMusic(response.result[0]);
+    return deezerData;
   }
 }

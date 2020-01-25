@@ -3,8 +3,10 @@ import { ReactMediaRecorder } from 'react-media-recorder';
 import { TextField, IconButton } from '@material-ui/core';
 import MicIcon from '@material-ui/icons/Mic';
 import { getSongDataByLyrics } from './api/AuddAPI';
+import { useDeezerData } from './ResultContext';
 
 export const InputSound = () => {
+  const { set } = useDeezerData();
   const [lyrics, setLyrics] = useState<string | null>(null);
   var isRecording = false;
 
@@ -20,7 +22,7 @@ export const InputSound = () => {
         onKeyPress={event => {
           if (event.key === 'Enter') {
             if (lyrics !== null) {
-              getSongDataByLyrics(lyrics);
+              getSongDataByLyrics(lyrics).then(data => set(data as any));
             }
 
             event.preventDefault();
