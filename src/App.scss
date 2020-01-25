@@ -32,22 +32,16 @@ $secondary-color: #EAE8E2;
 }
 
 .Input-music {
-  zoom: 1.4;
-  filter: invert(0.9);
   display: flex;
   padding: 1rem;
 }
 
 .icon {
-  border: solid;
+  border: 1px solid white;
   display: flex;
+  min-height: 48px;
   height: min-content;
-  align-items: end;
-  padding: .15rem;
-  margin-top: 1rem;
-  margin-left: 1.5rem;
-  opacity: .5;
-  cursor: pointer;
+  margin-left: 1.875rem;
 }
 
 .Audd--image-0 {
