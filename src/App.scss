@@ -206,7 +206,7 @@ a {
   .Result--text {
     overflow-y: auto;
   }
-  
+
   .Result-right {
     width: 55%;
     height: 100%;
@@ -343,8 +343,19 @@ a {
   text-transform: uppercase;
 }
 
+@media (max-height: 650px) {
+  .Box {
+    height: auto;
+    width: 100%;
+  }
 
-@media (max-width: 599px) {
+  .NavButtons {
+    display: none;
+  }
+}
+
+
+@media (max-width: 599px) and (min-height: 651px) {
   .Box {
     width: 100%;
 
@@ -441,4 +452,3 @@ a {
     }
   }
 }
-
