@@ -27,8 +27,14 @@ export async function getSongDataByLyrics(lyrics: string) {
     const response: AuddResponse = res.data;
     console.log('Audd result', response);
     const dataForDeezer = response.result[0];
-    const deezerData = await requestDeezerMusic(dataForDeezer);
-    const initialData: DeezerData = deezerData ? deezerData : { title: dataForDeezer.title, preview: '', album: { cover: '' }};
+    const initialData = await getDeezerData(dataForDeezer);
+
     return { ...initialData, lyrics: dataForDeezer.lyrics, results: response };
   }
+}
+
+export async function getDeezerData (data: MusicInfo) {
+  const deezerData = await requestDeezerMusic(data);
+  const initialData: DeezerData = deezerData ? deezerData : { title: data.title, preview: '', album: { cover: '' }};
+  return initialData;
 }

@@ -7,7 +7,7 @@ import DeezerProvider, { useDeezerData, DeezerData } from '../components/ResultC
 import InputGame from '../components/InputGame';
 import Player from '../components/PlaySoundButton';
 import ReactMarkdown from 'react-markdown';
-import { requestDeezerMusic } from '../api/AuddAPI';
+import { getDeezerData } from '../api/AuddAPI';
 import store from 'store';
 import List from '../components/List';
 
@@ -54,7 +54,7 @@ export const Result = (props: Props) => {
       return;
     }
     
-    currentTrack && requestDeezerMusic(currentTrack)
+    currentTrack && getDeezerData(currentTrack)
       .then(data => { 
         setData(data);
         setPreview(data.preview);

@@ -203,6 +203,10 @@ a {
       }
     }
   }
+  .Result--text {
+    overflow-y: auto;
+  }
+  
   .Result-right {
     width: 55%;
     height: 100%;
