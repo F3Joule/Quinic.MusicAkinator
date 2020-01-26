@@ -107,7 +107,7 @@ export const Result = (props: Props) => {
           <MobileView>
             <div className='Stats'>
               <div className='text'>NUMBER OF ATTEMPS</div>
-              <div className='counter'>{attemps}</div>
+              <div className='counter'>{5 - attemps}</div>
             </div>
           </MobileView>
           <div className='Result--text'>
